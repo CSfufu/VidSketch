@@ -3,9 +3,9 @@
 
 
 
-[![Awesome](https://awesome.re/badge.svg)](https://github.com/zjunlp/LLMAgentPapers)
+[![Awesome](https://awesome.re/badge.svg)](https://github.com/CSfufu/Hand-drawn-Sketch-Driven-Video-Generation-Leveraging-Diffusion-Model-for-Controlled-Video-Creation)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-![](https://img.shields.io/github/last-commit/CSfufu/Generalist-Virtual-Agents-A-Survey-on-Autonomous-Agents-Across-Digital-Platforms?color=green)
+![](https://img.shields.io/github/last-commit/CSfufu/Hand-drawn-Sketch-Driven-Video-Generation-Leveraging-Diffusion-Model-for-Controlled-Video-Creation?color=green)
 
 [[Arxiv Paper](#待更新)]&nbsp;
 [[Website Page](https://tankowa.github.io/HuViDPO.github.io/)]&nbsp;
@@ -238,12 +238,6 @@ Coming soon！
 ## License
 Licensed under a [Creative Commons Attribution-NonCommercial 4.0 International](https://creativecommons.org/licenses/by-nc/4.0/) for Non-commercial use only.
 Any commercial use should get formal permission first.
-
-## Contributors
-
-<a href="https://github.com/CSfufu/Hand-drawn-Sketch-Driven-Video-Generation-Leveraging-Diffusion-Model-for-Controlled-Video-Creation/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=CSfufu/Hand-drawn-Sketch-Driven-Video-Generation-Leveraging-Diffusion-Model-for-Controlled-Video-Creation" />
-</a>
 
 <!--
 ## Acknowledgement
