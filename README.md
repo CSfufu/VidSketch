@@ -9,7 +9,7 @@
 
 [[Arxiv Paper](#待更新)]&nbsp;
 [[Website Page](https://tankowa.github.io/HuViDPO.github.io/)]&nbsp;
-[[Google Drive](https://drive.google.com/drive/folders/1hIIcpn4WGoM9wVcfbiZTD2fgCzPk7A_X?usp=drive_link)]&nbsp;
+[[Google Drive](https://drive.google.com/drive/folders/1OPGiS5hzGLo8j3FFP-p9aVFlox91dYvC?usp=drive_link)]&nbsp;
 
 
 <!--
@@ -27,20 +27,22 @@
 -->
 
 ## News
-<!--
-- [2024/02/27] Our paper is accepted by CVPR2024!
-- [2023/11/15] The code for applying LAMP on video editing is released!
-- [2023/11/02] The [Colab demo](https://colab.research.google.com/drive/1Cw2e0VFktVjWC5zIKzv2r7D2-4NtH8xm?usp=sharing) is released! Thanks for the PR of @ShashwatNigam99.
--->
-- [2023/11/13] We add Google Drive link about our checkpoints and training data.
-- [2024/11/12] We release our checkpoints.
-- [2024/11/11] Our code is publicly available.
+
+- [2025/1/21] We add Google Drive link about our checkpoints and training data.
+- [2025/1/21] We release our checkpoints.
+- [2025/1/23] Our code is publicly available.
+- [2025/1/24] We have launched our website.
+
+## Abstract
+
+Creating high-quality aesthetic images and video animations typically demands advanced drawing skills beyond ordinary users. While AIGC advancements have enabled automated image generation from sketches, these methods are limited to static images and cannot control video animation generation using hand-drawn sketches. To solve this problem, our method, **Sketch2Video**, is the first to enable the generation of high-quality video animations solely from any number of hand-drawn sketches and simple text prompts, thereby bridging the gap between ordinary users and artists.
+Moreover, to address the diverse variations in users' drawing skills, we propose the Abstraction-Level Sketch Control Strategy, which automatically adjusts the guidance strength of sketches during the generation process.
+Additionally, to tackle inter-frame inconsistency, we propose an Enhanced SparseCausal-Attention mechanism, significantly improving the spatiotemporal consistency of the generated video animations.
 
 ## Our Method
 ![Description of Image](image/pipeline.png)
 
-Training pipeline of our HuViDPO. Training process can be divided into two stages: (1) Training the Attention Block and Temporal-Spatial layers using basic training data to improve the spatiotemporal consistency. (2) Fine-tuning the model, with LoRA added and other layers frozen, using small-scale human preference datasets and DPO strategy to enhance its alignment with human preferences.
-
+Pipeline of our **Sketch2Video**. During the training phase, we train the SC-Attention and Temporal Attention blocks using high-quality, small-scale video datasets that we have searched for by category. This helps improve the spatiotemporal consistency of the generated video animations. During the inference stage, users only need to input their desired prompt along with any number of sketch sequences to generate high-quality video animations tailored to their needs. Specifically, the first frame is processed to generate the corresponding initial image, while the entire sketch sequence is fed into the Inflated T2I-Adapter to extract information, which is then injected into the upsampling layers of the VDM to control the video animation generation process.
 
 
 ## Preparation
