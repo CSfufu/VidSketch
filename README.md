@@ -1,43 +1,32 @@
 
-# <p align="center"> Hand-drawn Sketch-Driven Video Generation: Leveraging Diffusion Model for Controlled Video Creation</p>
+# <p align="center">VidSketch: Hand-drawn Sketch-Driven Video Generation with Diffusion Control</p>
 
 
 
-[![Awesome](https://awesome.re/badge.svg)](https://github.com/CSfufu/Hand-drawn-Sketch-Driven-Video-Generation-Leveraging-Diffusion-Model-for-Controlled-Video-Creation)
+[![Awesome](https://awesome.re/badge.svg)](https://github.com/CSfufu/VidSketch)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-![](https://img.shields.io/github/last-commit/CSfufu/Hand-drawn-Sketch-Driven-Video-Generation-Leveraging-Diffusion-Model-for-Controlled-Video-Creation?color=green)
+![](https://img.shields.io/github/last-commit/CSfufu/VidSketch?color=green)
 
 [[Arxiv Paper](#待更新)]&nbsp;
-[[Website Page](https://tankowa.github.io/HuViDPO.github.io/)]&nbsp;
+[[Website Page](https://csfufu.github.io/vid_sketch/)]&nbsp;
 [[Google Drive](https://drive.google.com/drive/folders/1OPGiS5hzGLo8j3FFP-p9aVFlox91dYvC?usp=drive_link)]&nbsp;
 
+![](./image/shiyi.png)
+🚀 **VidSketch**, is the first to enable the generation of high-quality
+video animations solely from any number of hand-drawn sketches and simple text prompts.
 
-<!--
-[[Arxiv Paper](https://arxiv.org/abs/2310.10769)]&nbsp;
-[[Website Page](https://rq-wu.github.io/projects/LAMP/index.html)]&nbsp;
-[[Google Drive](https://drive.google.com/drive/folders/1hIIcpn4WGoM9wVcfbiZTD2fgCzPk7A_X?usp=drive_link)&nbsp;
-[[Baidu Disk (pwd: ffsp)](https://pan.baidu.com/s/1y9L2kfUlaHVZGE6B0-vXnA)]&nbsp;
-[[Colab Notebook](https://colab.research.google.com/drive/1Cw2e0VFktVjWC5zIKzv2r7D2-4NtH8xm?usp=sharing)]&nbsp;
--->
-
-<!--
-![method](assets/method.png)&nbsp;
-
-:rocket: LAMP is a **few-shot-based** method for text-to-video generation. You only need **8~16 videos 1 GPU (> 15 GB VRAM)** for training!! Then you can generate videos with learned motion pattern.
--->
+Our training was conducted on a single RTX4090 GPU using a small, high-quality dataset for each action category.
 
 ## News
 
 - [2025/1/21] We add Google Drive link about our checkpoints and training data.
 - [2025/1/21] We release our checkpoints.
-- [2025/1/23] Our code is publicly available.
 - [2025/1/24] We have launched our website.
+- [2025/1/28] Our code is now available.
 
 ## Abstract
 
-Creating high-quality aesthetic images and video animations typically demands advanced drawing skills beyond ordinary users. While AIGC advancements have enabled automated image generation from sketches, these methods are limited to static images and cannot control video animation generation using hand-drawn sketches. To solve this problem, our method, **Sketch2Video**, is the first to enable the generation of high-quality video animations solely from any number of hand-drawn sketches and simple text prompts, thereby bridging the gap between ordinary users and artists.
-Moreover, to address the diverse variations in users' drawing skills, we propose the Abstraction-Level Sketch Control Strategy, which automatically adjusts the guidance strength of sketches during the generation process.
-Additionally, to tackle inter-frame inconsistency, we propose an Enhanced SparseCausal-Attention mechanism, significantly improving the spatiotemporal consistency of the generated video animations.
+Creating high-quality aesthetic images and video animations typically demands advanced drawing skills beyond ordinary users. While AIGC advancements have enabled automated image generation from sketches, these methods are limited to static images and cannot control video animation generation using hand-drawn sketches. To solve this problem, our method, VidSketch, is the first to enable the generation of high-quality video animations solely from any number of hand-drawn sketches and simple text prompts, thereby bridging the gap between ordinary users and artists. Moreover, to address the diverse variations in users' drawing skills, we propose the Abstraction-Level Sketch Control Strategy, which automatically adjusts the guidance strength of sketches during the generation process. Additionally, to tackle inter-frame inconsistency, we propose an Enhanced SparseCausal-Attention mechanism, significantly improving the spatiotemporal consistency of the generated video animations.
 
 ## Our Method
 ![Description of Image](image/pipeline.png)
@@ -47,188 +36,73 @@ Pipeline of our **Sketch2Video**. During the training phase, we train the SC-Att
 
 ## Preparation
 ### Dependencies and Installation
-- Ubuntu > 18.04
-- CUDA=11.3
-- Others:
+
 
 ```bash
 # clone the repo
-git clone https://github.com/Tankowa/HuViDPO.git
-cd HuViDPO
+git clone https://github.com/CSfufu/VidSketch.git
+cd VidSketch
 
 # create virtual environment
-conda create -n HuViDPO python=3.8
-conda activate HuViDPO
+conda create -n VidSketch python=3.8
+conda activate VidSketch
 
 # install packages
-conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.6 -c pytorch -c conda-forge
 pip install -r requirements.txt
-pip install xformers==0.0.13
 ```
 
 ### Weights and Data
-1. You can download pre-trained T2I diffusion models on Hugging Face.
-   In our work, we use [Stable Diffusion v1.4](https://huggingface.co/CompVis/stable-diffusion-v1-4) as our backbone network. Clone the pretrained weights by `git-lfs` and put them in `./checkpoints`
 
-2. Our checkpoint and training data are listed as follows. You can also collect video data by your own (Suggest websites: [pexels](https://pexels.com/), [frozen-in-time](https://meru.robots.ox.ac.uk/frozen-in-time/)) and put .mp4 files in `./train_data/videos/[motion_name]/` and `./train_data/dpo_videos/[motion_name]/`
+To get started with VidSketch, you'll need to download both the pretrained model weights and the training data. These resources are essential for running the inference and training processes effectively.
 
-3. You can find the training videos and our trained model weights at [[Google Drive](https://drive.google.com/drive/folders/1e409tML98gwouIOxFwcFuGVBSNwsfEtY?usp=share_link)]
+#### Weights
 
-4. After deploying the data, run the prepared demo and rate it according to your preferences.
-   ```bash
-   python give_score.py
-   ```
+- **Pretrained Weights**: The pretrained weights are based on a high-quality model trained on a small, categorized video dataset. These weights are necessary for generating the first frame or initializing the video generation process. You can download the pretrained weights from our [Google Drive link](https://drive.google.com/drive/folders/1OPGiS5hzGLo8j3FFP-p9aVFlox91dYvC?usp=drive_link).
 
-<!--
-<table class="center">
-<tr>
-    <td align="center"> Motion Name </td>
-    <td align="center"> Checkpoint Link </td>
-    <td align="center"> Training data </td>
-</tr>
-<tr>
-    <td align="center">Birds fly</td>
-    <td align="center"><a href="https://pan.baidu.com/s/1nuZVRj-xRqkHySQQ3jCFkw">Baidu Disk (pwd: jj0o)</a></td>
-    <td align="center"><a href="https://pan.baidu.com/s/10fi8KoBrGJMpLQKhUIaFSQ">Baidu Disk (pwd: w96b)</a></td>
-</tr>
-<tr>
-    <td align="center">Firework</td>
-    <td align="center"><a href="https://pan.baidu.com/s/1zJnn5bZpGzChRHJdO9x6WA">Baidu Disk (pwd: wj1p)</a></td>
-    <td align="center"><a href="https://pan.baidu.com/s/1uIyw0Q70svWNM5z7DFYkiQ">Baidu Disk (pwd: oamp)</a></td>
-</tr>
-<tr>
-    <td align="center">Helicopter</td>
-    <td align="center"><a href="https://pan.baidu.com/s/1oj6t_VFo9cX0vTZWDq8q3w">Baidu Disk (pwd: egpe)</a></td>
-    <td align="center"><a href="https://pan.baidu.com/s/1MYMjIFyFTiLGEX1w0ees2Q">Baidu Disk (pwd: t4ba)</a></td>
-</tr>
-<tr>
-    <td align="center">Horse run</td>
-    <td align="center"><a href="https://pan.baidu.com/s/1lkAFZuEnot4JGruLe6pR3g">Baidu Disk (pwd: 19ld)</a></td>
-    <td align="center"><a href="https://pan.baidu.com/s/1z7FHN-aotdOF2MPUk4lDJg">Baidu Disk (pwd: mte7)</a></td>
-</tr>
-<tr>
-    <td align="center">Play the guitar</td>
-    <td align="center"><a href="https://pan.baidu.com/s/1uY47E08_cUofmlmKWfi46A">Baidu Disk (pwd: l4dw)</a></td>
-    <td align="center"><a href="https://pan.baidu.com/s/1cemrtzJtS_Lm8y8nZM9kSw">Baidu Disk (pwd: js26)</a></td>
-</tr>
-<tr>
-    <td align="center">Rain</td>
-    <td align="center"><a href="https://pan.baidu.com/s/1Cvsyg7Ld2O0DEK_U__2aXg">Baidu Disk (pwd: jomu)</a></td>
-    <td align="center"><a href="https://pan.baidu.com/s/1hMGrHCLNRDLJQ-4XKk6hZg">Baidu Disk (pwd: 31ug)</a></td>
-</tr>
-<tr>
-    <td align="center">Turn to smile</td>
-    <td align="center"><a href="https://pan.baidu.com/s/1UYjWncrxYiAhwpNAafH5WA">Baidu Disk (pwd: 2bkl)</a></td>
-    <td align="center"><a href="https://pan.baidu.com/s/1ErFSm6t-CtYBzsuzxi08dg">Baidu Disk (pwd: l984)</a></td>
-</tr>
-<tr>
-    <td align="center">Waterfall</td>
-    <td align="center"><a href="https://pan.baidu.com/s/1tWArxOw6CMceaW_49rIoSA">Baidu Disk (pwd: vpkk)</a></td>
-    <td align="center"><a href="https://pan.baidu.com/s/1hjlqRwa35nZ2pc2D-gIX9A">Baidu Disk (pwd: 2edp)</a></td>
-</tr>
-<tr>
-    <td align="center">All</td>
-    <td align="center"><a href="https://pan.baidu.com/s/1vRG7kMCTC7b9YUd4qsSP_A">Baidu Disk (pwd: ifsm)</a></td>
-    <td align="center"><a href="https://pan.baidu.com/s/1h5HrIGWP5OlMqp9gkD9cyQ">Baidu Disk (pwd: 2i2k)</a></td>
-</tr>
-</table>
--->
+- **Fine-tuned Weights**: If you wish to fine-tune the model on your own dataset, we provide fine-tuned weights that have been optimized using techniques like Direct Policy Optimization (DPO). Fine-tuning allows the model to generate more specialized videos based on your specific needs. You can download these weights from the same [Google Drive link](https://drive.google.com/drive/folders/1OPGiS5hzGLo8j3FFP-p9aVFlox91dYvC?usp=drive_link).
+
+#### Data
+
+- **Training Data**: Our training data consists of high-quality, small-scale video datasets categorized by various actions (e.g., objects moving, people dancing, etc.). These datasets were specifically curated for use with VidSketch to help improve spatiotemporal consistency in generated videos. You can access the data from our [Google Drive link](https://drive.google.com/drive/folders/1OPGiS5hzGLo8j3FFP-p9aVFlox91dYvC?usp=drive_link) and [dataset](https://github.com/CSfufu/VidSketch/tree/main/sketch).
+
+- **Sketches and Prompts**: To generate your own videos, you will need a sequence of hand-drawn sketches along with simple text prompts. These sketches will serve as the foundation for the video, and the prompts will guide the video generation process. If you'd like to see examples of sketches and prompts, you can check out the [visual examples](#Visual-Examples) section.
+
+Make sure you have the necessary files downloaded and set up before running any of the training or inference commands.
+
+
 
 ## Get Started
 ### 1. Training
 ```bash
-# Fine-tune base model, you can find train videos at ./train_data/videos/[motion_name]/
-CUDA_VISIBLE_DEVICES=X python train_lamp.py --config configs/smile.yaml
-
-# Fine-tune using DPO strategy, you can find train videos at ./train_data/dpo_videos/[motion_name]/
-CUDA_VISIBLE_DEVICES=X python new_train.py --config configs/smile-dpo.yaml --weights ./output/smile/diffusion_pytorch_model.bin
+CUDA_VISIBLE_DEVICES=X python train_vidsketch.py --config configs/candle.yaml
 ```
 
 ### 2. Inference
 Here is an example command for inference
 ```bash
 # Motion Pattern
-CUDA_VISIBLE_DEVICES=X python inference_script_dpo.py --weight ./output/smile/diffusion_pytorch_model.bin --pretrain_weight ./checkpoints/CompVis/stable-diffusion-v1-4 --image_path ./val_data/smile --prompt_path ./val_data/smile/smile.txt --output_path ./output/smile_lora --lora_weights ./output/smile/model_weights_epoch_1.pth
+CUDA_VISIBLE_DEVICES=X python inference.py  --pretrain_weight stable-diffusion-v1-5/stable-diffusion-v1-5 -p "A candle burning quietly." --length 10 --image_path ./t2i_ske/candle --sketch_path ./sketch/candle --weight path_to_the_checkpoint
 
 #########################################################################################################
-# --weight:           the path of our model(Fine-tune base model)
-# --lora_weights:      the path of our model(Fine-tune using DPO strategy)    
-# --pretrain_weight:  the path of the pre-trained model (e.g. SDv1.4)
-# --first_frame_path: the path of the first frame generated by T2I model (e.g. DPO-XL)
-# --prompt:           the input prompt, the default value is aligned with the filename of the first frame
-# --output:           output path, default: ./results 
-# --height:           video height, default: 320
-# --width:            video width, default: 512
-# --length            video length, default: 16
-# --cfg:              classifier-free guidance, default: 12.5
+# CUDA_VISIBLE_DEVICES=X  Specifies the GPU device number to use. `X` is the device ID. If multiple GPUs are available, you can list them separated by commas (e.g., `CUDA_VISIBLE_DEVICES=0,1`). If not explicitly specified, the first available GPU is used by default.
+# python inference.py  Runs the `inference.py` script to perform inference. This script typically contains the logic for model inference.
+# --pretrain_weight  Path to the pre-trained model weights. In this case, it points to the Stable Diffusion v1.5 model weights, which are used as the base for generating images or video frames.
+# -p   Input text prompt. This is the description or prompt used to guide the model in generating the output. For example, the prompt `"A candle burning quietly."` will guide the model to generate related imagery or video.
+# --length 10  Specifies the length of the video in terms of frames. In this case, the video will consist of 10 frames.
+# --image_path   Path to the input image. This provides the directory where the input image or sketch is located (e.g., `./t2i_ske/candle`), which may serve as the starting frame or reference for video generation.
+# --sketch_path  Path to the input sketch. This points to the directory containing the sketch image, often used as a rough outline to guide the model in generating more detailed images.
+# --weight path_to_the_checkpoint Path to the fine-tuned model weights. This specifies the checkpoint of a model that has been fine-tuned, potentially using a method like DPO (Direct Policy Optimization). `path_to_the_checkpoint` is the path to the checkpoint file.
+
 #########################################################################################################
 ```
 
 
 ## Visual Examples
-### Few-Shot-Based Text-to-Video Generation(We invite everyone to visit our official website to explore additional case studies and experiments. [[Website Page](https://tankowa.github.io/HuViDPO.github.io/)]&nbsp;)
-<table class="center">
-    <tr>
-        <td align="center" style="width: 7%"> Firework</td>
-        <td align="center">
-            <img src="assets/firework/2.gif">
-        </td>
-        <td align="center">
-            <img src="assets/firework/5.gif">
-        </td>
-        <td align="center">
-            <img src="assets/firework/6.gif">
-        </td>
-    </tr>
-    <tr>
-        <td align="center" style="width: 7%"> Helicopter</td>
-        <td align="center">
-            <img src="assets/helicopter/3.gif">
-        </td>
-        <td align="center">
-            <img src="assets/helicopter/6.gif">
-        </td>
-        <td align="center">
-            <img src="assets/helicopter/7.gif">
-        </td>
-    </tr>
-    <tr>
-        <td align="center" style="width: 7%"> Waterfall</td>
-        <td align="center">
-            <img src="assets/waterfall/1.gif">
-        </td>
-        <td align="center">
-            <img src="assets/waterfall/2.gif">
-        </td>
-        <td align="center">
-            <img src="assets/waterfall/3.gif">
-        </td>
-    </tr
-    <tr>
-        <td align="center" style="width: 7%"> Play the guitar</td>
-        <td align="center">
-            <img src="assets/guitar/2.gif">
-        </td>
-        <td align="center">
-            <img src="assets/guitar/5.gif">
-        </td>
-        <td align="center">
-            <img src="assets/guitar/6.gif">
-        </td>
-    </tr>
-    <tr>
-        <td align="center" style="width: 7%"> Birds fly</td>
-        <td align="center">
-            <img src="assets/birds_fly/1.gif">
-        </td>
-        <td align="center">
-            <img src="assets/birds_fly/5.gif">
-        </td>
-        <td align="center">
-            <img src="assets/birds_fly/6.gif">
-        </td>
-    </tr>
-<table>
+
+
+(We invite everyone to visit our official website to explore additional case studies and experiments. [[Website Page](https://csfufu.github.io/vid_sketch/)]&nbsp;)
+
+![showcase](./image/showcase.jpg)
 
 
 ## Citation
