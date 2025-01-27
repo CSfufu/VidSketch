@@ -10,6 +10,7 @@
 [[Arxiv Paper](#待更新)]&nbsp;
 [[Website Page](https://csfufu.github.io/vid_sketch/)]&nbsp;
 [[Google Drive](https://drive.google.com/drive/folders/1OPGiS5hzGLo8j3FFP-p9aVFlox91dYvC?usp=drive_link)]&nbsp;
+[[Dataset](https://github.com/CSfufu/VidSketch/tree/main/sketch)]&nbsp;
 
 ![](./image/shiyi.png)
 🚀 **VidSketch**, is the first to enable the generation of high-quality
