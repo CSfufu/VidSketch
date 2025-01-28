@@ -1,18 +1,10 @@
 
 # <p align="center">VidSketch: Hand-drawn Sketch-Driven Video Generation with Diffusion Control</p>
 
+<div style="text-align: center">
+  <img src="./image/shiyi.png" width="300">
+</div>
 
-
-[![Awesome](https://awesome.re/badge.svg)](https://github.com/CSfufu/VidSketch)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
-![](https://img.shields.io/github/last-commit/CSfufu/VidSketch?color=green)
-
-[[Arxiv Paper](#待更新)]&nbsp;
-[[Website Page](https://csfufu.github.io/vid_sketch/)]&nbsp;
-[[Google Drive](https://drive.google.com/drive/folders/1OPGiS5hzGLo8j3FFP-p9aVFlox91dYvC?usp=drive_link)]&nbsp;
-[[Dataset](https://github.com/CSfufu/VidSketch/tree/main/sketch)]&nbsp;
-
-![](./image/shiyi.png)
 🚀 **VidSketch**, is the first to enable the generation of high-quality
 video animations solely from any number of hand-drawn sketches and simple text prompts.
 
@@ -30,7 +22,10 @@ Our training was conducted on a single RTX4090 GPU using a small, high-quality d
 Creating high-quality aesthetic images and video animations typically demands advanced drawing skills beyond ordinary users. While AIGC advancements have enabled automated image generation from sketches, these methods are limited to static images and cannot control video animation generation using hand-drawn sketches. To solve this problem, our method, VidSketch, is the first to enable the generation of high-quality video animations solely from any number of hand-drawn sketches and simple text prompts, thereby bridging the gap between ordinary users and artists. Moreover, to address the diverse variations in users' drawing skills, we propose the Abstraction-Level Sketch Control Strategy, which automatically adjusts the guidance strength of sketches during the generation process. Additionally, to tackle inter-frame inconsistency, we propose an Enhanced SparseCausal-Attention mechanism, significantly improving the spatiotemporal consistency of the generated video animations.
 
 ## Our Method
-![Description of Image](image/pipeline.png)
+
+<div style="text-align: center">
+  <img src="./image/pipeline.png" width="300">
+</div>
 
 Pipeline of our **Sketch2Video**. During the training phase, we train the SC-Attention and Temporal Attention blocks using high-quality, small-scale video datasets that we have searched for by category. This helps improve the spatiotemporal consistency of the generated video animations. During the inference stage, users only need to input their desired prompt along with any number of sketch sequences to generate high-quality video animations tailored to their needs. Specifically, the first frame is processed to generate the corresponding initial image, while the entire sketch sequence is fed into the Inflated T2I-Adapter to extract information, which is then injected into the upsampling layers of the VDM to control the video animation generation process.
 
@@ -56,19 +51,6 @@ pip install -r requirements.txt
 
 To get started with VidSketch, you'll need to download both the pretrained model weights and the training data. These resources are essential for running the inference and training processes effectively.
 
-#### Weights
-
-- **Pretrained Weights**: The pretrained weights are based on a high-quality model trained on a small, categorized video dataset. These weights are necessary for generating the first frame or initializing the video generation process. You can download the pretrained weights from our [Google Drive link](https://drive.google.com/drive/folders/1OPGiS5hzGLo8j3FFP-p9aVFlox91dYvC?usp=drive_link).
-
-- **Fine-tuned Weights**: If you wish to fine-tune the model on your own dataset, we provide fine-tuned weights that have been optimized using techniques like Direct Policy Optimization (DPO). Fine-tuning allows the model to generate more specialized videos based on your specific needs. You can download these weights from the same [Google Drive link](https://drive.google.com/drive/folders/1OPGiS5hzGLo8j3FFP-p9aVFlox91dYvC?usp=drive_link).
-
-#### Data
-
-- **Training Data**: Our training data consists of high-quality, small-scale video datasets categorized by various actions (e.g., objects moving, people dancing, etc.). These datasets were specifically curated for use with VidSketch to help improve spatiotemporal consistency in generated videos. You can access the data from our [Google Drive link](https://drive.google.com/drive/folders/1OPGiS5hzGLo8j3FFP-p9aVFlox91dYvC?usp=drive_link) and [dataset](https://github.com/CSfufu/VidSketch/tree/main/sketch).
-
-- **Sketches and Prompts**: To generate your own videos, you will need a sequence of hand-drawn sketches along with simple text prompts. These sketches will serve as the foundation for the video, and the prompts will guide the video generation process. If you'd like to see examples of sketches and prompts, you can check out the [visual examples](#Visual-Examples) section.
-
-Make sure you have the necessary files downloaded and set up before running any of the training or inference commands.
 
 
 
@@ -101,23 +83,17 @@ CUDA_VISIBLE_DEVICES=X python inference.py  --pretrain_weight stable-diffusion-v
 ## Visual Examples
 
 
-(We invite everyone to visit our official website to explore additional case studies and experiments. [[Website Page](https://csfufu.github.io/vid_sketch/)]&nbsp;)
+We invite everyone to visit our official website to explore our website for additional case studies and experiments. 
 
-![showcase](./image/showcase.jpg)
+<div style="text-align: center">
+  <img src="./image/showcase.jpg" width="300">
+</div>
 
 
-## Citation
-If you find our repo useful for your research, please cite us:
-```
-Coming soon！
-```
+
 
 ## License
 Licensed under a [Creative Commons Attribution-NonCommercial 4.0 International](https://creativecommons.org/licenses/by-nc/4.0/) for Non-commercial use only.
 Any commercial use should get formal permission first.
 
-<!--
-## Acknowledgement
-This repository is maintained by [Lifan Jiang](https://csfufu.life).
-The code is built based on [LAMP](https://github.com/RQ-Wu/LAMP). Thanks for the excellent open-source code!!
--->
+
