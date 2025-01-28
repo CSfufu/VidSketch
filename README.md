@@ -2,7 +2,7 @@
 # <p align="center">VidSketch: Hand-drawn Sketch-Driven Video Generation with Diffusion Control</p>
 
 <div style="text-align: center">
-  <img src="./image/shiyi.png" width="300">
+  <img src="./image/shiyi.png" width="500">
 </div>
 
 🚀 **VidSketch**, is the first to enable the generation of high-quality
@@ -24,7 +24,7 @@ Creating high-quality aesthetic images and video animations typically demands ad
 ## Our Method
 
 <div style="text-align: center">
-  <img src="./image/pipeline.png" width="300">
+  <img src="./image/pipeline.jpg" width="500">
 </div>
 
 Pipeline of our **Sketch2Video**. During the training phase, we train the SC-Attention and Temporal Attention blocks using high-quality, small-scale video datasets that we have searched for by category. This helps improve the spatiotemporal consistency of the generated video animations. During the inference stage, users only need to input their desired prompt along with any number of sketch sequences to generate high-quality video animations tailored to their needs. Specifically, the first frame is processed to generate the corresponding initial image, while the entire sketch sequence is fed into the Inflated T2I-Adapter to extract information, which is then injected into the upsampling layers of the VDM to control the video animation generation process.
@@ -86,7 +86,7 @@ CUDA_VISIBLE_DEVICES=X python inference.py  --pretrain_weight stable-diffusion-v
 We invite everyone to visit our official website to explore our website for additional case studies and experiments. 
 
 <div style="text-align: center">
-  <img src="./image/showcase.jpg" width="300">
+  <img src="./image/showcase.jpg" width="500">
 </div>
 
 
