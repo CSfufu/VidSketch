@@ -24,6 +24,7 @@ Our training was conducted on a single RTX4090 GPU using a small, high-quality d
 - [2025/1/21] We release our checkpoints.
 - [2025/1/24] We have launched our website.
 - [2025/1/28] Our code is now available.
+- [2025/2/4]  Our paper is now online on arxiv.
 
 ## Abstract
 
