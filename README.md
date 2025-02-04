@@ -31,7 +31,7 @@ With the advancement of generative artificial intelligence, previous studies hav
 
 
 ## Our Method
-![Description of Image](image/pipeline.png)
+![Description of Image](image/pipeline.jpg)
 
 Pipeline of our **Sketch2Video**. During the training phase, we train the SC-Attention and Temporal Attention blocks using high-quality, small-scale video datasets that we have searched for by category. This helps improve the spatiotemporal consistency of the generated video animations. During the inference stage, users only need to input their desired prompt along with any number of sketch sequences to generate high-quality video animations tailored to their needs. Specifically, the first frame is processed to generate the corresponding initial image, while the entire sketch sequence is fed into the Inflated T2I-Adapter to extract information, which is then injected into the upsampling layers of the VDM to control the video animation generation process.
 
