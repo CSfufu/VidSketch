@@ -111,7 +111,15 @@ CUDA_VISIBLE_DEVICES=X python inference.py  --pretrain_weight stable-diffusion-v
 ## Citation
 If you find our repo useful for your research, please cite us:
 ```
-Coming soon！
+@misc{jiang2025vidsketchhanddrawnsketchdrivenvideo,
+      title={VidSketch: Hand-drawn Sketch-Driven Video Generation with Diffusion Control},
+      author={Lifan Jiang and Shuang Chen and Boxi Wu and Xiaotong Guan and Jiahui Zhang},
+      year={2025},
+      eprint={2502.01101},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2502.01101},
+}
 ```
 
 ## License
