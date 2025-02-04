@@ -7,7 +7,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 ![](https://img.shields.io/github/last-commit/CSfufu/VidSketch?color=green)
 
-[[Arxiv Paper](#待更新)]&nbsp;
+[[Arxiv Paper](https://arxiv.org/abs/2502.01101)]&nbsp;
 [[Website Page](https://csfufu.github.io/vid_sketch/)]&nbsp;
 [[Google Drive](https://drive.google.com/drive/folders/1OPGiS5hzGLo8j3FFP-p9aVFlox91dYvC?usp=drive_link)]&nbsp;
 [[Dataset](https://github.com/CSfufu/VidSketch/tree/main/sketch)]&nbsp;
