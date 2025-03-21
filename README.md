@@ -20,6 +20,7 @@ Our training was conducted on a single RTX4090 GPU using a small, high-quality d
 
 ## News
 
+- [2025/3/21] We add Google Drive for our config.json file.
 - [2025/1/21] We add Google Drive link about our checkpoints and training data.
 - [2025/1/21] We release our checkpoints.
 - [2025/1/24] We have launched our website.
